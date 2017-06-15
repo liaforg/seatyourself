@@ -8,7 +8,11 @@ class CreateRestaurants < ActiveRecord::Migration[5.0]
       t.integer :capacity
       t.integer :hours
       t.string :cuisine
-      
+      t.string :url
+      t.text :summary
+      t.integer :time_slot
+      t.integer :price
+
       t.timestamps
     end
   end
