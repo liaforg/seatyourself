@@ -1,5 +1,5 @@
 class Restaurant < ApplicationRecord
-  has_many :reservation
+  has_many :reservations
   belongs_to :user
-  
+
 end

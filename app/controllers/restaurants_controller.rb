@@ -45,5 +45,6 @@ class RestaurantsController < ApplicationController
     @restaurant.destroy
     flash[:alert] = "Restaurant Deleted!"
     redirect_to '/restaurants'
-
+  end
+  
 end
