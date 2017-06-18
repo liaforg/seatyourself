@@ -1,13 +1,6 @@
 <h1>Welcome to SeatYourSelf</h1>
 
 
-<% @restaurants.each do |restaurant| %>
-  <% if current_user %>
-    <p><%=link_to 'Edit', edit_restaurant_path(restaurant.id)%></p>
-  <%end%>
-  <p> <%= link_to(image_tag(restaurant.url), restaurant_path(restaurant))%> </p> <br />
-  <p><%=restaurant.name%> </p>
-<% end %>
 
 <div>
   <%= form_tag("/search", method: "get") do %>
@@ -23,7 +16,7 @@
 
 <ul><% @restaurants.each do |restaurant| %>
   <h3><%= link_to restaurant.name, restaurant_path(restaurant.id)%></h3><br />
-  <img src="<%= restaurant.menu %>"><br />
+  <img src="<%= restaurant.url %>"><br />
   <p><%= restaurant.summary %></p><br />
   <% end %>
 </ul>

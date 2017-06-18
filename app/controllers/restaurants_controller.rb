@@ -16,7 +16,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.create(restaurant_params)
     if @restaurant.save
       flash[:notice] = "Restaurant Saved!"
-      redirect_back restaurant_path
+      redirect_to restaurants_path
     else
       flash.now[:error] = "Something went wrong, please try again!"
       render :new
@@ -50,7 +50,7 @@ class RestaurantsController < ApplicationController
   end
 
   def restaurant_params
-    params.required(:restaurant).permit(:name, :url)
+    params.required(:restaurant).permit(:name, :address, :phone_number, :email, :capacity, :time_open, :cuisine, :url, :summary, :time_slot, :price, :time_close)
   end
 
 end
