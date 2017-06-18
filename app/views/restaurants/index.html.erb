@@ -9,6 +9,14 @@
   <p><%=restaurant.name%> </p>
 <% end %>
 
+<div>
+  <%= form_tag("/search", method: "get") do %>
+   <%= label_tag(:restaurants, "Search For:") %>
+   <%= text_area_tag(:name) %>
+   <%= text_area_tag(:cusine) %>
+   <%= submit_tag("Search")%>
+  <% end %>
+</div>
 
 
 <h2>Our Picks For You</h2>
