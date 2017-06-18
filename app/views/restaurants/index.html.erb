@@ -1,4 +1,4 @@
-<h1> Seat Yourself </h1>
+<h1>Welcome to SeatYourSelf</h1>
 
 
 <% @restaurants.each do |restaurant| %>
@@ -8,3 +8,14 @@
   <p> <%= link_to(image_tag(restaurant.url), restaurant_path(restaurant))%> </p> <br />
   <p><%=restaurant.name%> </p>
 <% end %>
+
+
+
+<h2>Our Picks For You</h2>
+
+<ul><% @restaurants.each do |restaurant| %>
+  <h3><%= link_to restaurant.name, restaurant_path(restaurant.id)%></h3><br />
+  <img src="<%= restaurant.menu %>"><br />
+  <p><%= restaurant.summary %></p><br />
+  <% end %>
+</ul>
