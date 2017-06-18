@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new
     if @user.save
       flash[:notice] = 'Bon Appétit!'
-      redirect_to root_url
+      redirect_to root_path
     else
       flash.now[:error] = 'Oops! Try again!!'
       render :new
