@@ -5,19 +5,44 @@ class UsersController < ApplicationController
   end
 
   def create
-      @user = User.new
-
-      @user.email                 = params[:user][:email]
-      @user.password              = params[:user][:password]
-      @user.password_confirmation = params[:user][:password_confirmation]
-
-      if @user.save
-        flash[:notice] = 'Bon Appétit!'
-        redirect_to root_url
-      else
-        flash.now[:error] = 'Oops! Try again!!'
-        render :new
-      end
+    @user = User.new
+    if @user.save
+      flash[:notice] = 'Bon Appétit!'
+      redirect_to root_url
+    else
+      flash.now[:error] = 'Oops! Try again!!'
+      render :new
     end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+       flash[:notice] = 'Updating completed'
+       redirect_to user_path
+    else
+       flash.now[:error] = 'Oops! Try again!!'
+       render :edit
+    end
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    if @user.destroy
+      flash[:notice] = 'Deleting completed'
+      redirect_to user_path
+    else
+      flash.now[:error] = 'Oops! Try again!!'
+      render :edit
+    end
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :email, :phone_number, :password, :password_confirmation)
+  end
 
 end
