@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new
+    @user = User.create(user_params)
     if @user.save
       flash[:notice] = 'Bon Appétit!'
       redirect_to root_path
