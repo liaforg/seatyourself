@@ -49,7 +49,12 @@ class RestaurantsController < ApplicationController
     end
   end
 
-
+  def search
+    search = params[:name]
+    cuisine = params[:cuisine]
+    @restaurants = Restaurant.all.where("name LIKE ?", "%#{search}%")
+    @restaurants = @restaurants.where("cuisine LIKE ?", "%#{cuisine}%")
+  end
 
   def restaurant_params
     params.required(:restaurant).permit(:name, :address, :phone_number, :email, :capacity, :time_open, :cuisine, :url, :summary, :time_slot, :price, :time_close)
