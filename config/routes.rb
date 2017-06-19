@@ -3,10 +3,12 @@ Rails.application.routes.draw do
   root 'restaurants#index'
   get '/search' => 'restaurants#index'
 
-  resources :restaurants
+  resources :restaurants do
+    resources :reservations
+  end
 
   resource :users, only: %i(new create)
   resource :sessions, only: %i(new create destroy)
-  resource :reservations
+
 
 end

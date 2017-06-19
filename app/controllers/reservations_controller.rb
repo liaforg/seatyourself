@@ -1,7 +1,7 @@
 class ReservationsController < ApplicationController
 
     def index
-      @reservation = Reservation.all
+      @reservations = Reservation.all
     end
 
     def show
@@ -9,20 +9,20 @@ class ReservationsController < ApplicationController
     end
 
     def new
-      @reservation = Reservation.new
-    end
-
-    def reservation_params
-      params.required(:reservation).permit(:time, :date, :party_number)
+      @restaurant = Restaurant.find(params[:restaurant_id])
+      @reservation = @restaurant.reservations.new
     end
 
     def create
-      @reservation = Reservation.create(reservation_params)
+      @user = current_user
+      @restaurant = Restaurant.find(params[:restaurant_id])
+      @reservation = @user.@restaurant.reservations.create(reservation_params)
       if @reservation.save
         flash[:notice] = "Reservation Saved!"
-        redirect_back reservation_path
+        redirect_to restaurant_reservations_path
       else
-        render 'reservation/show'
+        flash.now[:error] = "Sorry try again!"
+        render :new
       end
     end
 
@@ -47,7 +47,8 @@ class ReservationsController < ApplicationController
       redirect_to '/restaurants'
     end
 
-  end
-
+    def reservation_params
+      params.required(:reservation).permit(:time, :date, :party_number)
+    end
 
 end
