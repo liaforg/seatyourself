@@ -17,8 +17,10 @@ class ReservationsController < ApplicationController
     def create
       @restaurant = Restaurant.find(params[:restaurant_id])
       @reservation = @restaurant.reservations.create(reservation_params)
+      @reservation.user_id = current_user.id
       if @reservation.save
         flash[:notice] = "Reservation Saved!"
+        # add loyalty points code here
         redirect_to restaurant_reservations_path
       else
         flash.now[:error] = "Sorry try again!"
