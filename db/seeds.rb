@@ -7,15 +7,43 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Restaurant.create(
-  name: 'Restaurant One',
+  name: 'Porch Restaurant',
   address: "1 First Lane",
   phone_number: 4161234567,
-  email: 'restaurantone@gmail.com',
+  email: 'porchrest@gmail.com',
   capacity: 100,
-  time_open: 1100,
+  time_open: 1000,
   time_close: 2000,
   cuisine: 'American',
-  url: 'https://i.imgur.com/WPcy3B6.jpg',
-  summary: 'All Day Breakfast',
+  url: 'http://i.imgur.com/FlozbQQ.jpg?1',
+  summary: 'All Day Breakfast!',
+  price: 100
+)
+
+Restaurant.create(
+  name: 'Thai Restaurant',
+  address: "2 First Lane",
+  phone_number: 4161234567,
+  email: 'thairest@gmail.com',
+  capacity: 200,
+  time_open: 1300,
+  time_close: 2000,
+  cuisine: 'Thai',
+  url: 'http://i.imgur.com/TzCovws.jpg',
+  summary: 'Best Thai in town!',
+  price: 50
+)
+
+Restaurant.create(
+  name: 'Sushi Restaurant',
+  address: "3 First Lane",
+  phone_number: 4161234567,
+  email: 'sushirest@gmail.com',
+  capacity: 50,
+  time_open: 1400,
+  time_close: 2100,
+  cuisine: 'Sushi',
+  url: 'http://i.imgur.com/IscC0d4.jpg',
+  summary: 'Bestb Sushi in Toronto! ',
   price: 100
 )
