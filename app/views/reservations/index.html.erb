@@ -2,10 +2,10 @@
 <% if current_user %>
   <div>
     <% @reservations.each do |reservation| %>
-      <p>Reservation Time: <%= reservation.restaurant_id %></p>
-      <p>Reservation Time: <%= reservation.user_id %></p>
+      <p>Restaurant Name: <%= @restaurant.name %></p>
+      <p>User Id: <%= reservation.user_id %></p>
       <p>Reservation Time: <%= reservation.time %></p>
-      <p>Reservation Time: <%= reservation.date %></p><br />
+      <p>Reservation Date: <%= reservation.date %></p><br />
     <% end %>
   </div>
 <% end %>
