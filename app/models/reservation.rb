@@ -3,7 +3,7 @@ class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :restaurant
 
-  validates :datetime, :party_number,  presence: true
+  validates :date, :party_number,  presence: true
 
   validate :time?
   def time?
@@ -12,5 +12,6 @@ class Reservation < ApplicationRecord
       errors.add(:time, 'Please book between opening and closing times!')
     end
   end
+
 
 end

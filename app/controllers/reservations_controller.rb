@@ -20,6 +20,7 @@ class ReservationsController < ApplicationController
       @reservation.user_id = current_user.id
       if @reservation.save
         flash[:notice] = "Reservation Saved!"
+        # add loyalty points code here
         redirect_to restaurant_reservations_path
       else
         flash.now[:error] = "Sorry try again!"
@@ -49,7 +50,7 @@ class ReservationsController < ApplicationController
     end
 
     def reservation_params
-      params.required(:reservation).permit(:time, :datetime, :party_number)
+      params.required(:reservation).permit(:time, :date, :party_number)
     end
 
 end
