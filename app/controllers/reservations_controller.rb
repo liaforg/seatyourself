@@ -16,7 +16,7 @@ class ReservationsController < ApplicationController
     def create
       @user = current_user
       @restaurant = Restaurant.find(params[:restaurant_id])
-      @reservation = @user.@restaurant.reservations.create(reservation_params)
+      @reservation = @restaurant.reservations.create(reservation_params)
       if @reservation.save
         flash[:notice] = "Reservation Saved!"
         redirect_to restaurant_reservations_path
