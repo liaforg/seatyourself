@@ -1,5 +1,6 @@
 class Reservation < ApplicationRecord
+
   belongs_to :user
-  belongs_to :restaurants
+  belongs_to :restaurant
 
 end
