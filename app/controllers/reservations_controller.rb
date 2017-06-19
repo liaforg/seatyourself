@@ -20,7 +20,7 @@ class ReservationsController < ApplicationController
       @reservation.user_id = current_user.id
       if @reservation.save
         flash[:notice] = "Reservation Saved!"
-        # add loyalty points code here
+        @reservation.user.increment!(:loyalty, 5)
         redirect_to restaurant_reservations_path
       else
         flash.now[:error] = "Sorry try again!"
