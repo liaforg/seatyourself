@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  validates :email, presence: true
-  
+  validates :name, :email, presence: true
+
+  ALLOWED_ROLES = ["user", "owner"]
+
 end
